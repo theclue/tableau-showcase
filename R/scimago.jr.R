@@ -52,4 +52,4 @@ scimago.jr.get <- function(years,
   
 }
 
-all.papers <- scimago.jr.get(as.character(1996:2016), .progress = create_progress_bar("text"))
+all.papers <- scimago.jr.get(as.character(1996:2015), .progress = create_progress_bar("text"))
