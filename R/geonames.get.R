@@ -10,17 +10,12 @@ geonames.get <- function(username,
     xmlToDataFrame(
       xmlParse(getURL(paste0("http://ws.geonames.org/countryInfo?username=", username), ssl.verifypeer=FALSE)
       ), stringsAsFactors = FALSE    )
-
   
   # Init the progress bar
   .progress$init(nrow(loc)+1)
   .progress$step()
   
   country.data <- do.call(rbind.fill, list(apply(loc[,1:2], 1, function(x){
-    url <- URLencode(paste0("http://ws.geonames.org/search?country=", x[1], "&name=", x[2], "&maxRows=1&username=", username))
-    
-    #print(url)
-    
     one.country <- 
       data.frame(t(sapply(
         xmlToList(xmlTreeParse(getURL(URLencode(paste0("http://ws.geonames.org/search?country=", x[1], "&name=", x[2], "&maxRows=1&username=", username)), ssl.verifypeer=FALSE)
@@ -36,10 +31,14 @@ geonames.get <- function(username,
     return(one.country)}
     
   ), stringsAsFactors = FALSE))
- 
+  
   .progress$term() 
   
-  return(data.frame(loc, country.data))
+  all.data <- data.frame(loc, country.data)
+  all.data$countryCode1 <- NULL
+  all.data$countryName1 <- NULL
+  
+  return(all.data)
   
 }
 
