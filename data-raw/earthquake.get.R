@@ -43,9 +43,10 @@ earthquakes.get <- function(years,
       .progress$step()
     }
     
-    return(read.csv(url(url)))
+    return(read.csv(url(url), stringsAsFactors = FALSE))
   }
   
 }
 
-all.earthquakes <- earthquakes.get(as.character(1996:2016), .progress = create_progress_bar("text"))
+earthquakes <- earthquakes.get(as.character(1996:2015), .progress = create_progress_bar("text"))
+save(earthquakes, file="./data/earthquakes.rdata")

@@ -52,4 +52,5 @@ scimago.jr.get <- function(years,
   
 }
 
-all.papers <- scimago.jr.get(as.character(1996:2015), .progress = create_progress_bar("text"))
+papers <- scimago.jr.get(as.character(1996:2015), .progress = create_progress_bar("text"))
+save(papers, file="./data/papers.rdata")
