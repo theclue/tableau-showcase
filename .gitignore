@@ -36,3 +36,4 @@ vignettes/*.pdf
 /inst/data
 
 .Renviron
+*.txt
