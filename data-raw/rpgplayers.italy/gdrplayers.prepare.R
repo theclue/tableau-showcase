@@ -156,26 +156,25 @@ gdrplayers$role <-
 #####
 
 # Load the corpus
-# TODO check if it's ok to merge title and content
+# I decided to do text transformations outside the Corpus since i'm using a virtual one
 
-gdrplayers.corpus <- VCorpus(DataframeSource(data.frame(doc_id = gdrplayers$post.id,
-                                                       text = paste(gdrplayers$post.title,  gdrplayers$post.content, sep = ". "),
-                                                       stringsAsFactors = FALSE)))
+games.vector <- paste(gdrplayers$post.title,
+                      gdrplayers$post.content,
+                      sep = " ")
 
-# Case lowering
-gdrplayers.corpus <- tm_map(gdrplayers.corpus, content_transformer(tolower))
+games.vector <- tolower(games.vector)
+games.vector <- resolveRpgSynonyms(games.vector)
 
-# Resolve ambiguous abbreviations and synonyms
-gdrplayers.corpus <- tm_map(gdrplayers.corpus, resolveRpgSynonyms)
+gdrplayers.corpus <- VCorpus(VectorSource(games.vector))
 
 # Clean up the text
-gdrplayers.corpus <- tm_map(gdrplayers.corpus, removePunctuation)
 gdrplayers.corpus <- tm_map(gdrplayers.corpus, stripWhitespace)
 
 # Coercing to PlainTextDocument
 #gdrplayers.corpus <-  tm_map(gdrplayers.corpus, PlainTextDocument)
 
 # Metadata
+DublinCore(gdrplayers.corpus, tag="identifier") <- gdrplayers$post.id
 DublinCore(gdrplayers.corpus, tag="creator") <- gdrplayers$author.id
 DublinCore(gdrplayers.corpus, tag="title") <- gdrplayers$post.title
 DublinCore(gdrplayers.corpus, tag="date") <- gdrplayers$post.dt
@@ -184,19 +183,18 @@ meta(gdrplayers.corpus, tag="role") <- gdrplayers$role
 meta(gdrplayers.corpus, tag="replies") <- gdrplayers$comments.num
 meta(gdrplayers.corpus, tag="place") <- gdrplayers$locations
 
-#gdrplayers.corpus <- Corpus(VectorSource(gdrplayers.corpus))
-
 ############################
 # Phase 3: Adjacence Matrix
 # Matrix is built against a dictionary of known gdr names
 #####
 
 FourGramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 1, max = 4))
+
 # term-document matrix
 gdrplayers.tdm <- TermDocumentMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer, dictionary = rpg.list.norm$title.abbreviated))
 
 # document-term matrix
- gdrplayers.dtm <- DocumentTermMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer,  dictionary = rpg.list.norm$title.abbreviated))
+gdrplayers.dtm <- DocumentTermMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer,  dictionary = rpg.list.norm$title.abbreviated))
 
 # adjacence matrix
 gdrplayers.tdm.matrix <- as.matrix(gdrplayers.tdm)
@@ -212,7 +210,6 @@ gdrplayers.adj.matrix <- gdrplayers.adj.matrix %*% t(gdrplayers.adj.matrix)
 
 rpg.list.norm$main.genre <- gsub("^(.*)[\\s]+\\/[\\s](.*)$", "\\1", perl = TRUE, rpg.list$genres)
 rpg.list.norm$sub.genre <- gsub("^(.*)[\\s]+\\/[\\s](.*)$", "\\2", perl = TRUE, rpg.list$genres)
-
 
 ######################################
 # Phase 5: Citation-level Detail Cube
@@ -241,13 +238,11 @@ write.csv(gdrplayers.tableau,
 #####
 
 # Most frequent games
-temp <- inspect(gdrplayers.tdm, dimnames(gdrplayers.tdm)$Docs)
 
 gdrplayers.freq <- data.frame(apply(gdrplayers.tdm, 1, sum))
 gdrplayers.freq <- data.frame(ST = row.names(gdrplayers.freq), Freq = gdrplayers.freq[, 1])
 gdrplayers.freq <- gdrplayers.freq[order(gdrplayers.freq$Freq, decreasing = T), ]
 row.names(gdrplayers.freq) <- NULL
-rm(temp)
 
 write.csv2(
   merge(
