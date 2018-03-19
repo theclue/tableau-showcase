@@ -30,6 +30,9 @@ invisible(lapply(c("https://raw.githubusercontent.com/trinker/topicmodels_learni
                    "https://gist.githubusercontent.com/theclue/a4741899431b06941c1f529d6aac4387/raw/f69d9b5a420e2c4707acad69f31c6e6a3c15e559/ggplot-multiplot.R",
                    "https://gist.githubusercontent.com/mrdwab/11380733/raw/83c8eeb156a49c653ed31c7cda67b36281173ee6/cSplit.R") ,devtools::source_url))
 
+invisible(lapply(file.path(".", c("rpg.synonyms.R")), source))
+
+
 unescape_html <- function(str){
   do.call(c, pblapply(str, function(x){
     xml2::xml_text(xml2::read_html(paste0("<x>", x, "</x>")))  
@@ -113,16 +116,11 @@ italian.places <- read.csv(file = file.path("..", "..", "data", "common","italia
                                header = TRUE,
                                quote= "",
                                stringsAsFactors = FALSE)
-rpg_list <- read_delim("D:/Github/tableau-showcase-mirror/data/rpg/rpg.list.csv", "|", escape_double = FALSE, trim_ws = TRUE)
 
-rpg_list$url <- gsub("http", "https", rpg_list$Link)
+rpg.abbreviations <- read.csv(file.path("..", "..", "data", "rpg", "rpg.abbreviations.csv"), stringsAsFactors = FALSE)
 
-rpg.list.norm <- left_join(rpg.list, rpg_list, by = "url") %>%
-  mutate(year = ifelse(!is.na(year), year, Anno)) %>%
-  mutate(edition = ifelse(!is.na(edition), edition, Publisher)) %>%
-  mutate(title.norm = TitoloNorm) %>%
-  mutate(title.norm = ifelse(is.na(title.norm), tolower(gsub("[[:punct:] ]+", " ", title)), title.norm)) %>%
-  select(c(colnames(rpg.list), "title.norm"))
+rpg.list.norm <- left_join(rpg.list, rpg.abbreviations, by = "id") %>%
+  mutate(title.abbreviated = ifelse(is.na(title.abbreviated), tolower(gsub("[[:punct:] ]+", " ", title)), title.abbreviated))
 
 
 ############################
@@ -159,23 +157,25 @@ gdrplayers$role <-
 
 # Load the corpus
 # TODO check if it's ok to merge title and content
-gdrplayers.corpus <-
-  Corpus(VectorSource(paste(gdrplayers$post.title,  gdrplayers$post.content, sep = ". ")), list(language="it"))
+
+gdrplayers.corpus <- VCorpus(DataframeSource(data.frame(doc_id = gdrplayers$post.id,
+                                                       text = paste(gdrplayers$post.title,  gdrplayers$post.content, sep = ". "),
+                                                       stringsAsFactors = FALSE)))
 
 # Case lowering
-gdrplayers.corpus <- tm_map(gdrplayers.corpus, tolower)
+gdrplayers.corpus <- tm_map(gdrplayers.corpus, content_transformer(tolower))
 
 # Resolve ambiguous abbreviations and synonyms
 gdrplayers.corpus <- tm_map(gdrplayers.corpus, resolveRpgSynonyms)
 
-# Remove extra trailing spaces
-gdrplayers.corpus<- tm_map(gdrplayers.corpus, stripWhitespace)
+# Clean up the text
+gdrplayers.corpus <- tm_map(gdrplayers.corpus, removePunctuation)
+gdrplayers.corpus <- tm_map(gdrplayers.corpus, stripWhitespace)
 
 # Coercing to PlainTextDocument
-gdrplayers.corpus <-  tm_map(gdrplayers.corpus, PlainTextDocument)
+#gdrplayers.corpus <-  tm_map(gdrplayers.corpus, PlainTextDocument)
 
 # Metadata
-DublinCore(gdrplayers.corpus, tag="identifier") <- gdrplayers$post.id
 DublinCore(gdrplayers.corpus, tag="creator") <- gdrplayers$author.id
 DublinCore(gdrplayers.corpus, tag="title") <- gdrplayers$post.title
 DublinCore(gdrplayers.corpus, tag="date") <- gdrplayers$post.dt
@@ -184,22 +184,74 @@ meta(gdrplayers.corpus, tag="role") <- gdrplayers$role
 meta(gdrplayers.corpus, tag="replies") <- gdrplayers$comments.num
 meta(gdrplayers.corpus, tag="place") <- gdrplayers$locations
 
+#gdrplayers.corpus <- Corpus(VectorSource(gdrplayers.corpus))
+
 ############################
 # Phase 3: Adjacence Matrix
-# Matrix is built against the dictionary of known gdr names
+# Matrix is built against a dictionary of known gdr names
 #####
 
 FourGramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 1, max = 4))
 # term-document matrix
-gdrplayers.tdm <- TermDocumentMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer, dictionary = rpg_list$TitoloNorm))
+gdrplayers.tdm <- TermDocumentMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer, dictionary = rpg.list.norm$title.abbreviated))
 
 # document-term matrix
-# gdr.players.dtm <- DocumentTermMatrix(gdr.players.corpus, control = list(tokenize = FourGramTokenizer,  dictionary = rpg.list.italians$TitoloNorm))
+ gdrplayers.dtm <- DocumentTermMatrix(gdrplayers.corpus, control = list(tokenize = FourGramTokenizer,  dictionary = rpg.list.norm$title.abbreviated))
 
 # adjacence matrix
-gdr.tdm.matrix <- as.matrix(gdr.players.tdm)
-colnames(gdr.tdm.matrix) <- meta(gdr.players.corpus, type="indexed")$id
+gdrplayers.tdm.matrix <- as.matrix(gdrplayers.tdm)
+colnames(gdrplayers.tdm.matrix) <- meta(gdrplayers.corpus, type="indexed")$id
 
-gdr.adj.matrix <- gdr.tdm.matrix
-gdr.adj.matrix[gdr.tdm.matrix>=1] <- 1
-gdr.adj.matrix <- gdr.adj.matrix %*% t(gdr.adj.matrix)
+gdrplayers.adj.matrix <- gdrplayers.tdm.matrix
+gdrplayers.adj.matrix[gdrplayers.tdm.matrix>=1] <- 1
+gdrplayers.adj.matrix <- gdrplayers.adj.matrix %*% t(gdrplayers.adj.matrix)
+
+#############################
+# Phase 4: Attributes Fixing
+#####
+
+rpg.list.norm$main.genre <- gsub("^(.*)[\\s]+\\/[\\s](.*)$", "\\1", perl = TRUE, rpg.list$genres)
+rpg.list.norm$sub.genre <- gsub("^(.*)[\\s]+\\/[\\s](.*)$", "\\2", perl = TRUE, rpg.list$genres)
+
+
+######################################
+# Phase 5: Citation-level Detail Cube
+#####
+
+gdrplayers.tableau <- as.data.frame(as.table(gdrplayers.tdm.matrix))
+gdrplayers.tableau <- gdrplayers.tableau[which(gdrplayers.tableau$Freq > 0),]
+
+gdrplayers.tableau <- merge(x=gdrplayers.tableau, y=meta(gdrplayers.corpus, type="indexed", tag=c("id", "author", "datetimestamp", "role", "replies", "place")), by.x = "Docs", by.y = "id", all.x = TRUE)
+gdrplayers.tableau <- merge(x=gdrplayers.tableau, y=rpg.list.norm, by.x = "Terms", by.y = "title.abbreviated", all.x = TRUE)
+
+# Get only the first place
+gdrplayers.tableau$place <- gsub("([^,]+).*", "\\1", perl = TRUE, gdrplayers.tableau$place)
+
+gdrplayers.tableau <- left_join(gdrplayers.tableau,
+                                unique(italian.places[,c("Provincia", "Prov", "Regione", "Latitudine.Prov", "Longitudine.Prov")]),
+                                by = c("place" = "Provincia")
+                                )
+
+write.csv(gdrplayers.tableau,
+          file = file.path("..", "..", "data", "rpg","gdrplayers.tableau.csv"),
+          row.names = FALSE)
+
+#############################################
+# RPG-level Aggregated Cube (with frequences)
+#####
+
+# Most frequent games
+temp <- inspect(gdrplayers.tdm, dimnames(gdrplayers.tdm)$Docs)
+
+gdrplayers.freq <- data.frame(apply(gdrplayers.tdm, 1, sum))
+gdrplayers.freq <- data.frame(ST = row.names(gdrplayers.freq), Freq = gdrplayers.freq[, 1])
+gdrplayers.freq <- gdrplayers.freq[order(gdrplayers.freq$Freq, decreasing = T), ]
+row.names(gdrplayers.freq) <- NULL
+rm(temp)
+
+write.csv2(
+  merge(
+    x=merge(x=rpg.genres.italians, y=rpg.list.italians[,!names(rpg.list.italians) %in% c("Link", "Genre")], by="TitoloNorm"), 
+    y=gdr.players.freq, by.x="TitoloNorm",
+    by.y="ST", all.x=TRUE), 
+  "./tableau/data/rpg.italians.list.csv", row.names=FALSE)

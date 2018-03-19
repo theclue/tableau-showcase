@@ -47,12 +47,26 @@ resolveRpgSynonyms.PlainTextDocument <- resolveRpgSynonyms.character <- function
   
   # sinonimi
   x <- gsub("buffy the vampire slayer", "buffy", x, ignore.case = i.c)
+  
+  x <- gsub("original dungeons&dragons", "d&d", x, ignore.case = i.c)
+  x <- gsub("original dungeons & dragons", "d&d", x, ignore.case = i.c)
+  x <- gsub("odnd", "d&d", x, ignore.case = i.c)
+  x <- gsub("od'n'd", "d&d", x, ignore.case = i.c)
+  x <- gsub("original dungeons and dragons", "d&d", x, ignore.case = i.c)
+  
   x <- gsub("advanced dungeons & dragons", "ad&d", x, ignore.case = i.c)
+  x <- gsub("advanced dungeons&dragons", "ad&d", x, ignore.case = i.c)
   x <- gsub("adnd", "ad&d", x, ignore.case = i.c)
   x <- gsub("advanced dungeons and dragons", "ad&d", x, ignore.case = i.c)
+  
+  
+  x <- gsub("dungeons&dragons", "d&d", x, ignore.case = i.c)
   x <- gsub("dungeons & dragons", "d&d", x, ignore.case = i.c)
   x <- gsub("dnd", "d&d", x, ignore.case = i.c)
+  x <- gsub("d'n'd", "d&d", x, ignore.case = i.c)
   x <- gsub("dungeons and dragons", "d&d", x, ignore.case = i.c)
+  
+  
   x <- gsub("project hope", "project h.o.p.e.", x, ignore.case = i.c)
   x <- gsub("cyberpunk", "cyberpunk 2020", x, ignore.case = i.c)
   x <- gsub("warhammer 40000", "dark heresy", x, ignore.case = i.c)
