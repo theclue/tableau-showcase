@@ -218,20 +218,28 @@ rpg.list.norm$sub.genre <- gsub("^(.*)[\\s]+\\/[\\s](.*)$", "\\2", perl = TRUE, 
 gdrplayers.tableau <- as.data.frame(as.table(gdrplayers.tdm.matrix))
 gdrplayers.tableau <- gdrplayers.tableau[which(gdrplayers.tableau$Freq > 0),]
 
-gdrplayers.tableau <- merge(x=gdrplayers.tableau, y=meta(gdrplayers.corpus, type="indexed", tag=c("id", "author", "datetimestamp", "role", "replies", "place")), by.x = "Docs", by.y = "id", all.x = TRUE)
-gdrplayers.tableau <- merge(x=gdrplayers.tableau, y=rpg.list.norm, by.x = "Terms", by.y = "title.abbreviated", all.x = TRUE)
+gdrplayers.tableau <- left_join(gdrplayers.tableau,
+                                gdrplayers,
+                                by = c("Docs" = "post.id"))
+
+# gdrplayers.tableau <- left_join(gdrplayers.tableau,
+#                                 rpg.list.norm,
+#                                 by = c("Terms" = "title.abbreviated"))
+
+gdrplayers.tableau$Freq <- 1
 
 # Get only the first place
-gdrplayers.tableau$place <- gsub("([^,]+).*", "\\1", perl = TRUE, gdrplayers.tableau$place)
+gdrplayers.tableau$location <- gsub("([^,]+).*", "\\1", perl = TRUE, gdrplayers.tableau$location)
 
 gdrplayers.tableau <- left_join(gdrplayers.tableau,
                                 unique(italian.places[,c("Provincia", "Prov", "Regione", "Latitudine.Prov", "Longitudine.Prov")]),
-                                by = c("place" = "Provincia")
-                                )
+                                by = c("location" = "Provincia")
+                                ) %>% select(-post.content, -post.title)
 
 write.csv(gdrplayers.tableau,
           file = file.path("..", "..", "data", "rpg","gdrplayers.tableau.csv"),
           row.names = FALSE)
+
 
 #############################################
 # RPG-level Aggregated Cube (with frequences)
@@ -244,9 +252,15 @@ gdrplayers.freq <- data.frame(ST = row.names(gdrplayers.freq), Freq = gdrplayers
 gdrplayers.freq <- gdrplayers.freq[order(gdrplayers.freq$Freq, decreasing = T), ]
 row.names(gdrplayers.freq) <- NULL
 
-write.csv2(
-  merge(
-    x=merge(x=rpg.genres.italians, y=rpg.list.italians[,!names(rpg.list.italians) %in% c("Link", "Genre")], by="TitoloNorm"), 
-    y=gdr.players.freq, by.x="TitoloNorm",
-    by.y="ST", all.x=TRUE), 
-  "./tableau/data/rpg.italians.list.csv", row.names=FALSE)
+# collapse vampire and some other stuff
+# TODO fix at rpgsynonyms level
+
+gdrplayers.freq$Rank <- 1:NROW(gdrplayers.freq)
+
+write.csv(gdrplayers.freq,
+          file = file.path("..", "..", "data", "rpg","gdrplayers.freq.csv"),
+          row.names = FALSE)
+
+write.csv(rpg.list.norm,
+          file = file.path("..", "..", "data", "rpg","rpg.list.tableau.csv"),
+          row.names = FALSE)

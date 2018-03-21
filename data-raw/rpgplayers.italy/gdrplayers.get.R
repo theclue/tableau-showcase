@@ -3,7 +3,7 @@
 ######################
 if (!require("pacman")) install.packages("pacman"); invisible(library(pacman))
 tryCatch({
-  p_load("tidyverse", "lubridate", "rvest")
+  p_load("tidyverse", "lubridate", "rvest", "httr", "RCurl")
 }, warning=function(w){
   stop(conditionMessage(w))
 })
@@ -12,12 +12,21 @@ gdrplayers.get.page <- function(page, verbose = TRUE){
   
   gdrplayers.posts.links <- page %>% html_nodes(".post-excerpt") %>% html_node("h3 > a") %>% html_attr("href")
   
-  page1 <- do.call(plyr::rbind.fill, lapply(gdrplayers.posts.links, function(x){
+  cached.files <- list.files(file.path(".", "gdrplayers"))
+  cached.ids <- gsub(".html", "", cached.files)
+  
+  page.links <- setdiff(gdrplayers.posts.links, sprintf("https://www.gdrplayers.it/%s/", cached.ids))
+  
+  page1 <- do.call(plyr::rbind.fill, lapply(page.links, function(x){
     
     post.df <- tryCatch({
       
-      page <- read_html(x)
+      page <- read_html(httr::GET(as.character(x), add_headers("user-agent" = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100")))
       
+      file <- file.path(".", "gdrplayers", paste(id, "html", sep="."))
+      write_html(h, file, options = "format")
+      Sys.sleep(5)
+
       post.node <- page %>%  html_nodes(xpath = "//div[contains(@id, 'post-')]")
       
       post.id <- gsub("post-([0-9]+)", "\\1", 
@@ -84,8 +93,36 @@ gdrplayers.get.page <- function(page, verbose = TRUE){
   
 }
 
+gdrplayers.cache.page <- function(page, verbose = TRUE){
+  
+  gdrplayers.posts.links <- page %>% html_nodes(".post-excerpt") %>% html_node("h3 > a") %>% html_attr("href")
+  
+  cached.files <- list.files(file.path(".", "gdrplayers"))
+  cached.ids <- gsub(".html", "", cached.files)
+  
+  page.links <- setdiff(gdrplayers.posts.links, sprintf("https://www.gdrplayers.it/%s/", cached.ids))
+  
+  lapply(page.links, function(x){
+    
+    post.df <- tryCatch({
+      
+      page <- read_html(httr::GET(as.character(x), add_headers("user-agent" = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100")))
+      
+      file <- file.path(".", "gdrplayers", paste(gsub("https:\\/\\/www\\.gdrplayers\\.it\\/(.+)?(?:\\/)", "\\1", x, perl = TRUE), "html", sep="."))
+      write_html(page, file, options = "format")
+      
+      message(sprintf("Writing down %s", file))
+      
+      Sys.sleep(5)
+      
+      
+    })
+  })
+  
+}
+
 ########################
-# GET ALL THE PAGES    #
+# CACHE ALL THE PAGES  #
 ########################
 next.page <- "http://www.gdrplayers.it/blog/"
 gdrplayers <- data.frame()
@@ -93,7 +130,21 @@ gdrplayers <- data.frame()
 repeat {
   message(paste("Scraping:", next.page, sep=" "))
   gdrplayers.home <- read_html(next.page)
-  gdrplayers <- plyr::rbind.fill(gdrplayers, gdrplayers.get.page(gdrplayers.home, verbose = TRUE))
+  gdrplayers.cache.page(gdrplayers.home, verbose = TRUE)
+  next.page <- gdrplayers.home %>% html_nodes(xpath = "//div[@id='navigation']//a[contains(.,'vecchie')]") %>% html_attr("href")
+  if(nchar(next.page)==0) break()
+}
+  
+########################
+# GET ALL THE PAGES    #
+########################
+next.page <- "https://www.gdrplayers.it/blog/page/796/"
+gdrplayers <- data.frame()
+
+repeat {
+  message(paste("Scraping:", next.page, sep=" "))
+  gdrplayers.home <- read_html(next.page)
+  gdrplayers <- plyr::rbind.fill(gdrplayers, gdrplayers.cache.page(gdrplayers.home, verbose = TRUE))
   next.page <- gdrplayers.home %>% html_nodes(xpath = "//div[@id='navigation']//a[contains(.,'vecchie')]") %>% html_attr("href")
   if(nchar(next.page)==0) break()
 }
