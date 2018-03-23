@@ -36,7 +36,7 @@ rpg.list <- do.call(plyr::rbind.fill, lapply(cached.files, function(x){
      
      message(sprintf("Parsing game %d: %s", id, title))
 
-     edition.yyyy <- trimws(table.box %>% html_nodes(xpath = "tr[td[contains(.,'Edition')]]/td[2]") %>% html_text())
+     edition.yyyy <- trimws(table.box %>% html_nodes(xpath = "tr[td[contains(.,'Edition') and contains(.,'Info')]]/td[2]") %>% html_text())
      year <- as.numeric(gsub("(.*)(\\(([0-9]+).*\\))", "\\3", edition.yyyy))
      edition <- trimws( gsub("(.*)(\\(([0-9]+).*\\))", "\\1", edition.yyyy))
 
@@ -67,20 +67,20 @@ rpg.list <- do.call(plyr::rbind.fill, lapply(cached.files, function(x){
     url <- sprintf("https://index.rpg.net/display-entry.phtml?mainid=%s", id)
 
     return(data.frame(id = id,
-                      title = ifelse(!is.null(title), title, NA),
-                      authors = ifelse(!is.null(author), author, NA),
-                      book.type = ifelse(!is.null(book.type), book.type, NA),
-                      genres = ifelse(!is.null(genre), genre, NA),
-                      settings = ifelse(!is.null(setting), setting, NA),
-                      system = ifelse(!is.null(system), system, NA),
-                      awards = ifelse(!is.null(award), award, NA),
-                      edition = ifelse(!is.null(edition), edition, ifelse(!is.null(edition.details), edition.details, NA)),
-                      year = ifelse(!is.null(year), year, ifelse(!is.null(year.details), year.details, NA)),
-                      editions.num = ifelse(!is.null(editions.num), editions.num, NA),
-                      rating = ifelse(!is.null(rating), rating, NA),
-                      rank = ifelse(!is.null(rank), rank, NA),
-                      url = ifelse(!is.null(url), url, NA),
-                      img.url = ifelse(!is.null(img), img, NA),
+                      title = ifelse(!is_empty(title), title, NA),
+                      authors = ifelse(!is_empty(author), author, NA),
+                      book.type = ifelse(!is_empty(book.type), book.type, NA),
+                      genres = ifelse(!is_empty(genre), genre, NA),
+                      settings = ifelse(!is_empty(setting), setting, NA),
+                      system = ifelse(!is_empty(system), system, NA),
+                      awards = ifelse(!is_empty(award), award, NA),
+                      edition = ifelse(!is_empty(edition), edition, ifelse(!is_empty(edition.details), edition.details, NA)),
+                      year = ifelse(!is_empty(year), year, ifelse(!is_empty(year.details), year.details, NA)),
+                      editions.num = ifelse(!is_empty(editions.num), editions.num, NA),
+                      rating = ifelse(!is_empty(rating), rating, NA),
+                      rank = ifelse(!is_empty(rank), rank, NA),
+                      url = ifelse(!is_empty(url), url, NA),
+                      img.url = ifelse(!is_empty(img), img, NA),
                       stringsAsFactors = FALSE))
    
 }))
