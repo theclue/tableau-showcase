@@ -247,8 +247,8 @@ write.csv(gdrplayers.tableau,
 
 # Most frequent games
 
-gdrplayers.freq <- data.frame(apply(gdrplayers.tdm, 1, sum))
-gdrplayers.freq <- data.frame(ST = row.names(gdrplayers.freq), Freq = gdrplayers.freq[, 1])
+gdrplayers.tdm.df <- data.frame(apply(gdrplayers.tdm, 1, sum))
+gdrplayers.freq <- data.frame(ST = row.names(gdrplayers.tdm.df), Freq = gdrplayers.tdm.df[, 1])
 gdrplayers.freq <- gdrplayers.freq[order(gdrplayers.freq$Freq, decreasing = T), ]
 row.names(gdrplayers.freq) <- NULL
 
@@ -256,6 +256,17 @@ row.names(gdrplayers.freq) <- NULL
 # TODO fix at rpgsynonyms level
 
 gdrplayers.freq$Rank <- 1:NROW(gdrplayers.freq)
+
+# Gathering doc-term matrix
+gdrplayers.dtm.df <- as.data.frame(as.matrix(gdrplayers.dtm))
+gdrplayers.dtm.df$dt <- format(meta(gdrplayers.corpus, type="indexed")$date, "%Y")
+gdrplayers.dtm.df$id <- meta(gdrplayers.corpus, type="indexed")$id
+gdrplayers.denorm <- gather(gdrplayers.dtm.df, key = "game", value="value", -dt, -id) %>% 
+  filter(value != 0) %>%
+  mutate(value = 1) %>% select(-id) %>%
+  dcast(game ~ dt, fun=sum)
+
+gdrplayers.freq <- left_join(gdrplayers.freq, gdrplayers.denorm, by=c("ST"="game"))
 
 write.csv(gdrplayers.freq,
           file = file.path("..", "..", "data", "rpg","gdrplayers.freq.csv"),
