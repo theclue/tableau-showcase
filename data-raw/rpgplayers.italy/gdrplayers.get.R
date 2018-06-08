@@ -135,7 +135,7 @@ gdrplayers.cache.page <- function(page, verbose = TRUE){
 ########################
 # CRAWL ALL THE PAGES  #
 ########################
-next.page <- "https://www.gdrplayers.it/blog/page/800/"
+next.page <- "https://www.gdrplayers.it/blog/"
 gdrplayers <- data.frame()
 
 repeat {
