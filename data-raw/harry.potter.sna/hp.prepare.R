@@ -63,7 +63,7 @@ hp.one.sentences.delim <- merge.dialogues(hp.one.sentences)
 # I'm going to split by chapter to calculate dialogue metrics with more precision
 hp.one.chapters <- lapply(splitAt(hp.one.sentences.delim,
                                   which(is.na(hp.one.sentences.delim))
-                                  ), function(chapter){
+), function(chapter){
   na.omit(chapter)
 })
 
@@ -220,9 +220,9 @@ if(initDict()) {
       mutate("implicit.dialogue" = TRUE))
   ) %>%
     mutate("implicit.dialogue" = ifelse(is.na(implicit.dialogue), FALSE, implicit.dialogue))
-    
+  
   verbs.dictionary <- verbs.dictionary[(verbs.dictionary$verb %nin% c("do")),]
-
+  
 }
 
 ############################################
@@ -255,12 +255,25 @@ speakers.df$true.conversation <- ifelse(is.na(speakers.df$true.conversation), sp
 
 speakers.df <- unique(speakers.df %>% select(-conversation))
 
+######################
+# Garbage collection
+##
+rm(hp.one.chapters,
+   hp.one.sentences,
+   hp.one.sentences.delim,
+   hp.one.sentences.nlp,
+   conversation.sumup, 
+   explicit.speakers,
+   implicit.dialogue.verbs.seed,
+   dialogue.verbs.seed,
+   verbs.dictionary)
+
 #####################
 # NETWORK ANALYSIS  #
 #####################
 edge.lists <- do.call(plyr::rbind.fill, lapply(split(speakers.df, as.factor(speakers.df$true.conversation)), function(t){
   
-  if(nrow(t) <=1 ) return(NULL)
+  if(nrow(t) <= 1) return(NULL)
   
   t1 <- (expand.grid(t$name, t$name) %>% filter(Var1 != Var2))
   delRows = NULL # the rows to be removed
@@ -272,14 +285,15 @@ edge.lists <- do.call(plyr::rbind.fill, lapply(split(speakers.df, as.factor(spea
     }
   }
   t1 = t1[-delRows,]
-  colnames(t1) <- c("Source", "Target")
+  colnames(t1) <- c("from", "to")
   t1$true.conversation <- unique(t$true.conversation)
   return(t1)
   
-})) %>% group_by(from, to) %>% summarise(Weight = n())
+})) %>% group_by(from, to) %>% summarise(weight = n())
 
 
 hp.graph <- graph_from_data_frame(edge.lists, directed = FALSE, vertices = harrypotter.houses[harrypotter.houses$name %in% speakers.df$name,])
+hp.graph <- igraph::simplify(hp.graph)
 
 V(hp.graph)$label <- V(hp.graph)$name
 
@@ -294,16 +308,21 @@ hp.hub <- hub_score(hp.graph)
 
 hp.sna <- intergraph::asNetwork(hp.graph)
 
-hp.betweeness.sna <- data.frame(name = V(hp.graph)$name,
-                                betweeness.std = sna::betweenness(hp.sna, gmode = "graph", cmode = "undirected"),
-                                betweeness.linear = sna::betweenness(hp.sna, gmode = "graph", cmode = "linearscaled"),
-                                betweeness.proximal = sna::betweenness(hp.sna, gmode = "graph", cmode = "proximalsrc"),
-                                stringsAsFactors = FALSE)
+hp.centrality <- data.frame(name = V(hp.graph)$name,
+                            betweeness.std = sna::betweenness(hp.sna, gmode = "graph", cmode = "undirected"),
+                            betweeness.linear = sna::betweenness(hp.sna, gmode = "graph", cmode = "linearscaled"),
+                            betweeness.proximal = sna::betweenness(hp.sna, gmode = "graph", cmode = "proximalsrc"),
+                            closeness.std = sna::closeness(hp.sna, gmode = "graph", cmode = "undirected"),
+                            closeness.gil = sna::closeness(hp.sna, gmode = "graph", cmode = "gil-schmidt"),
+                            eigenvector.std = sna::evcent(hp.sna, gmode = "graph"),
+                            harari.std = sna::graphcent(hp.sna, gmode = "graph"),
+                            bonpow.std = sna::bonpow(hp.sna, g = 1, exponent = -2, tol = 1e-20, gmode = "graph"),
+                            stringsAsFactors = FALSE)
 
-hp.closeness.sna <- data.frame(name = V(hp.graph)$name,
-                                closeness.std = sna::closeness(hp.sna, gmode = "graph", cmode = "undirected"),
-                                closeness.gil = sna::closeness(hp.sna, gmode = "graph", cmode = "gil-schmidt"),
-                                stringsAsFactors = FALSE)
+
+ego <- ego.extract(hp.sna)
+
+hp.brokerage <- brokerage(hp.sna, cl = V(hp.graph)$affiliation)
 
 ################
 # Network Plots
