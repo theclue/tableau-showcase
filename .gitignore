@@ -34,7 +34,10 @@ vignettes/*.pdf
 
 #
 /inst/data
+/credentials
 
 .Renviron
 *.txt
 *.html
+*.twbr
+.RData
