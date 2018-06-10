@@ -189,122 +189,128 @@
       <data key="v_affiliation">Ravenclaw</data>
       <data key="v_label">Filius Flitwick</data>
     </node>
-    <edge source="n5" target="n7">
+    <edge source="n0" target="n1">
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n0" target="n2">
+      <data key="e_weight">10</data>
+    </edge>
+    <edge source="n0" target="n4">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n6">
+    <edge source="n0" target="n6">
+      <data key="e_weight">11</data>
+    </edge>
+    <edge source="n0" target="n7">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n0" target="n13">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n0" target="n16">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n0" target="n24">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n0" target="n25">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n1" target="n2">
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n1" target="n4">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n1" target="n6">
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n1" target="n7">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n1" target="n25">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n2" target="n4">
       <data key="e_weight">2</data>
     </edge>
     <edge source="n2" target="n5">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n12">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n13">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n5" target="n14">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n15">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n33">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n7">
-      <data key="e_weight">1</data>
+    <edge source="n2" target="n6">
+      <data key="e_weight">12</data>
     </edge>
     <edge source="n2" target="n7">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n3" target="n7">
+    <edge source="n2" target="n8">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n9">
+    <edge source="n2" target="n12">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n14">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n15">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n27">
+    <edge source="n2" target="n13">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n7" target="n35">
+    <edge source="n2" target="n17">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n6">
-      <data key="e_weight">4</data>
+    <edge source="n2" target="n18">
+      <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n7">
-      <data key="e_weight">24</data>
+    <edge source="n2" target="n19">
+      <data key="e_weight">1</data>
     </edge>
-    <edge source="n2" target="n6">
-      <data key="e_weight">12</data>
-    </edge>
-    <edge source="n0" target="n6">
-      <data key="e_weight">4</data>
-    </edge>
-    <edge source="n1" target="n6">
-      <data key="e_weight">4</data>
+    <edge source="n2" target="n25">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n3" target="n6">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n9">
+    <edge source="n3" target="n7">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n13">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n24">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n18">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n6" target="n14">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n15">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n27">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n35">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n31">
+    <edge source="n3" target="n8">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n5">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n4" target="n7">
-      <data key="e_weight">3</data>
-    </edge>
     <edge source="n4" target="n6">
       <data key="e_weight">5</data>
     </edge>
-    <edge source="n2" target="n4">
+    <edge source="n4" target="n7">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n4" target="n8">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n0" target="n4">
+    <edge source="n4" target="n12">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n4" target="n13">
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n4" target="n17">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n1" target="n4">
+    <edge source="n4" target="n18">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n4" target="n19">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n4" target="n20">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n24">
       <data key="e_weight">2</data>
+    </edge>
+    <edge source="n4" target="n25">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n4" target="n27">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n34">
       <data key="e_weight">1</data>
@@ -312,104 +318,203 @@
     <edge source="n4" target="n35">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n0" target="n2">
-      <data key="e_weight">1</data>
+    <edge source="n5" target="n6">
+      <data key="e_weight">6</data>
     </edge>
-    <edge source="n1" target="n2">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n0" target="n7">
+    <edge source="n5" target="n7">
       <data key="e_weight">2</data>
-    </edge>
-    <edge source="n0" target="n6">
-      <data key="e_weight">7</data>
-    </edge>
-    <edge source="n0" target="n2">
-      <data key="e_weight">9</data>
-    </edge>
-    <edge source="n0" target="n1">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n0" target="n13">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n0" target="n24">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n0" target="n16">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n1" target="n7">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n1" target="n6">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n1" target="n2">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n0" target="n1">
-      <data key="e_weight">3</data>
     </edge>
     <edge source="n5" target="n8">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n8">
+    <edge source="n5" target="n12">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n5" target="n13">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n5" target="n14">
       <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n15">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n17">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n18">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n19">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n21">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n24">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n33">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n35">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n7">
+      <data key="e_weight">24</data>
     </edge>
     <edge source="n6" target="n8">
       <data key="e_weight">6</data>
     </edge>
-    <edge source="n4" target="n8">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n2" target="n8">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n3" target="n8">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n8" target="n12">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n8" target="n24">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n8" target="n19">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n8" target="n17">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n10">
+    <edge source="n6" target="n9">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n6" target="n10">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n11">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n6" target="n11">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n12">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n6" target="n12">
       <data key="e_weight">4</data>
     </edge>
-    <edge source="n4" target="n12">
+    <edge source="n6" target="n13">
+      <data key="e_weight">42</data>
+    </edge>
+    <edge source="n6" target="n14">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n6" target="n15">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n6" target="n16">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n17">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n18">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n6" target="n19">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n6" target="n20">
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n6" target="n21">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n6" target="n22">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n23">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n24">
+      <data key="e_weight">24</data>
+    </edge>
+    <edge source="n6" target="n25">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n6" target="n26">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n2" target="n12">
+    <edge source="n6" target="n27">
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n6" target="n28">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n12" target="n19">
+    <edge source="n6" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n12" target="n17">
+    <edge source="n6" target="n31">
       <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n32">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n33">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n6" target="n35">
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n7" target="n8">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n9">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n10">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n11">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n13">
+      <data key="e_weight">11</data>
+    </edge>
+    <edge source="n7" target="n14">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n15">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n19">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n7" target="n20">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n7" target="n21">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n7" target="n24">
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n7" target="n25">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n27">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n7" target="n28">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n29">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n33">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n7" target="n35">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n8" target="n12">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n8" target="n13">
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n8" target="n17">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n8" target="n18">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n8" target="n19">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n8" target="n24">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n8" target="n32">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n12" target="n13">
+      <data key="e_weight">6</data>
     </edge>
     <edge source="n12" target="n14">
       <data key="e_weight">1</data>
@@ -417,41 +522,17 @@
     <edge source="n12" target="n15">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n13">
-      <data key="e_weight">3</data>
+    <edge source="n12" target="n17">
+      <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n13">
-      <data key="e_weight">11</data>
+    <edge source="n12" target="n18">
+      <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n13">
-      <data key="e_weight">41</data>
+    <edge source="n12" target="n19">
+      <data key="e_weight">1</data>
     </edge>
-    <edge source="n4" target="n13">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n2" target="n13">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n8" target="n13">
-      <data key="e_weight">4</data>
-    </edge>
-    <edge source="n12" target="n13">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n13" target="n24">
-      <data key="e_weight">23</data>
-    </edge>
-    <edge source="n13" target="n19">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n13" target="n17">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n13" target="n18">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n13" target="n21">
-      <data key="e_weight">4</data>
+    <edge source="n12" target="n35">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n13" target="n14">
       <data key="e_weight">4</data>
@@ -459,14 +540,35 @@
     <edge source="n13" target="n15">
       <data key="e_weight">4</data>
     </edge>
-    <edge source="n13" target="n27">
+    <edge source="n13" target="n16">
       <data key="e_weight">1</data>
+    </edge>
+    <edge source="n13" target="n17">
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n13" target="n18">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n13" target="n19">
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n13" target="n20">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n13" target="n21">
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n13" target="n24">
+      <data key="e_weight">24</data>
+    </edge>
+    <edge source="n13" target="n25">
+      <data key="e_weight">3</data>
     </edge>
     <edge source="n13" target="n26">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n13" target="n35">
-      <data key="e_weight">5</data>
+    <edge source="n13" target="n27">
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n13" target="n28">
       <data key="e_weight">1</data>
@@ -477,104 +579,71 @@
     <edge source="n13" target="n31">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n13" target="n16">
-      <data key="e_weight">1</data>
+    <edge source="n13" target="n35">
+      <data key="e_weight">5</data>
     </edge>
-    <edge source="n5" target="n24">
-      <data key="e_weight">1</data>
+    <edge source="n14" target="n15">
+      <data key="e_weight">3</data>
     </edge>
-    <edge source="n7" target="n24">
-      <data key="e_weight">9</data>
-    </edge>
-    <edge source="n6" target="n24">
-      <data key="e_weight">23</data>
-    </edge>
-    <edge source="n13" target="n24">
+    <edge source="n14" target="n21">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n14" target="n24">
       <data key="e_weight">1</data>
     </edge>
+    <edge source="n14" target="n25">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n14" target="n28">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n14" target="n29">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n14" target="n35">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n15" target="n21">
+      <data key="e_weight">1</data>
+    </edge>
     <edge source="n15" target="n24">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n24" target="n27">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n24" target="n35">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n5" target="n19">
+    <edge source="n15" target="n25">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n19">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n6" target="n19">
-      <data key="e_weight">5</data>
-    </edge>
-    <edge source="n4" target="n19">
+    <edge source="n15" target="n28">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n2" target="n19">
+    <edge source="n15" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n19" target="n24">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n5" target="n17">
+    <edge source="n15" target="n35">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n17">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n4" target="n17">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n17">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n17" target="n19">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n4" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n8" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n12" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n13" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n18" target="n19">
+    <edge source="n16" target="n24">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n17" target="n18">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n20">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n20">
-      <data key="e_weight">6</data>
-    </edge>
-    <edge source="n4" target="n20">
+    <edge source="n17" target="n19">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n13" target="n20">
-      <data key="e_weight">5</data>
+    <edge source="n18" target="n19">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n18" target="n21">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n19" target="n21">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n19" target="n24">
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n19" target="n25">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n20" target="n24">
       <data key="e_weight">2</data>
@@ -582,35 +651,14 @@
     <edge source="n20" target="n35">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n21">
+    <edge source="n21" target="n22">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n7" target="n21">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n6" target="n21">
-      <data key="e_weight">5</data>
-    </edge>
-    <edge source="n13" target="n21">
+    <edge source="n21" target="n23">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n21" target="n24">
       <data key="e_weight">5</data>
-    </edge>
-    <edge source="n19" target="n21">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n18" target="n21">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n21" target="n22">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n14" target="n21">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n15" target="n21">
-      <data key="e_weight">1</data>
     </edge>
     <edge source="n21" target="n27">
       <data key="e_weight">1</data>
@@ -618,56 +666,29 @@
     <edge source="n21" target="n35">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n22">
+    <edge source="n22" target="n23">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n22" target="n24">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n23">
+    <edge source="n22" target="n30">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n23" target="n24">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n21" target="n23">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n22" target="n23">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n25">
-      <data key="e_weight">5</data>
-    </edge>
-    <edge source="n4" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n0" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n1" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n13" target="n25">
-      <data key="e_weight">3</data>
-    </edge>
     <edge source="n24" target="n25">
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n19" target="n25">
-      <data key="e_weight">1</data>
+    <edge source="n24" target="n26">
+      <data key="e_weight">2</data>
     </edge>
-    <edge source="n14" target="n25">
-      <data key="e_weight">1</data>
+    <edge source="n24" target="n27">
+      <data key="e_weight">3</data>
     </edge>
-    <edge source="n15" target="n25">
-      <data key="e_weight">1</data>
+    <edge source="n24" target="n35">
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n25" target="n28">
       <data key="e_weight">1</data>
@@ -675,88 +696,10 @@
     <edge source="n25" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n14" target="n15">
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n27">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n4" target="n27">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n13" target="n27">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n24" target="n27">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n26">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n24" target="n26">
-      <data key="e_weight">2</data>
-    </edge>
     <edge source="n26" target="n27">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n12" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n14" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n15" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n28">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n28">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n14" target="n28">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n15" target="n28">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n29">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n29">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n14" target="n29">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n15" target="n29">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n28" target="n29">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n22" target="n30">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n32">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n8" target="n32">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n7" target="n33">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n33">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n6" target="n16">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n16" target="n24">
       <data key="e_weight">1</data>
     </edge>
   </graph>
