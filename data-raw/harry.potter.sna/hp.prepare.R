@@ -328,6 +328,11 @@ hp.brokerage <- brokerage(hp.sna, cl = V(hp.graph)$affiliation)
 # Network Plots
 ##
 
+# cfr. http://kateto.net/network-visualization
+plot(hp.graph, edge.arrow.size=.2, edge.color="orange",
+     vertex.color="orange", vertex.frame.color="#ffffff",
+     vertex.label=V(hp.graph)$media, vertex.label.color="black")
+
 plot.degree.distribution(hp.graph)
 
 fit_power_law = function(graph) {
