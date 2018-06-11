@@ -16,15 +16,15 @@ tryCatch({
 sapply(file.path("..", "..", "R", c("multiplot.R",
                                     "splitAt.R",
                                     "merge.dialogues.R",
-                                    "find.explicit.speakers.R",
-                                    "plot.degree.distribution.R")),
+                                    "find.explicit.speakers.R")),
        source,
        .GlobalEnv)
 
 cloud.credentials <- file.path("..", "..", "credentials", Sys.getenv("GCLOUD_DEV_CREDENTIALS"))
 
 gl_auth(cloud.credentials)
-spacy_initialize(model = "en_core_web_lg")
+
+#spacy_initialize(model = "en_core_web_lg")
 
 # wordnet
 setDict(Sys.getenv(file.path("WNHOME"), "dict"))
@@ -268,9 +268,11 @@ rm(hp.one.chapters,
    dialogue.verbs.seed,
    verbs.dictionary)
 
-#####################
-# NETWORK ANALYSIS  #
-#####################
+#######################
+# NETWORK GENERATION  #
+#######################
+
+# Static Network
 edge.lists <- do.call(plyr::rbind.fill, lapply(split(speakers.df, as.factor(speakers.df$true.conversation)), function(t){
   
   if(nrow(t) <= 1) return(NULL)
@@ -297,76 +299,10 @@ hp.graph <- igraph::simplify(hp.graph)
 
 V(hp.graph)$label <- V(hp.graph)$name
 
-##############
-# Centrality
-##
-
-hp.betweeness <- igraph::betweenness(hp.graph, directed = FALSE)
-hp.closeness <- igraph::closeness(hp.graph)
-hp.degrees <- igraph::degree(hp.graph)
-hp.hub <- hub_score(hp.graph)
-
-hp.sna <- intergraph::asNetwork(hp.graph)
-
-hp.centrality <- data.frame(name = V(hp.graph)$name,
-                            betweeness.std = sna::betweenness(hp.sna, gmode = "graph", cmode = "undirected"),
-                            betweeness.linear = sna::betweenness(hp.sna, gmode = "graph", cmode = "linearscaled"),
-                            betweeness.proximal = sna::betweenness(hp.sna, gmode = "graph", cmode = "proximalsrc"),
-                            closeness.std = sna::closeness(hp.sna, gmode = "graph", cmode = "undirected"),
-                            closeness.gil = sna::closeness(hp.sna, gmode = "graph", cmode = "gil-schmidt"),
-                            eigenvector.std = sna::evcent(hp.sna, gmode = "graph"),
-                            harari.std = sna::graphcent(hp.sna, gmode = "graph"),
-                            bonpow.std = sna::bonpow(hp.sna, g = 1, exponent = -2, tol = 1e-20, gmode = "graph"),
-                            stringsAsFactors = FALSE)
-
-
-ego <- ego.extract(hp.sna)
-
-hp.brokerage <- brokerage(hp.sna, cl = V(hp.graph)$affiliation)
-
-################
-# Network Plots
-##
-
-# cfr. http://kateto.net/network-visualization
-plot(hp.graph, edge.arrow.size=.2, edge.color="orange",
-     vertex.color="orange", vertex.frame.color="#ffffff",
-     vertex.label=V(hp.graph)$media, vertex.label.color="black")
-
-plot.degree.distribution(hp.graph)
-
-fit_power_law = function(graph) {
-  # calculate degree
-  d = igraph::degree(graph)
-  dd = igraph::degree.distribution(graph, cumulative = FALSE)
-  degree = 1:max(d)
-  probability = dd[-1]
-  # delete blank values
-  nonzero.position = which(probability != 0)
-  probability = probability[nonzero.position]
-  degree = degree[nonzero.position]
-  reg = lm(log(probability) ~ log(degree))
-  cozf = coef(reg)
-  power.law.fit = function(x) exp(cozf[[1]] + cozf[[2]] * log(x))
-  alpha = -cozf[[2]]
-  R.square = summary(reg)$r.squared
-  print(paste("Alpha =", round(alpha, 3)))
-  print(paste("R square =", round(R.square, 3)))
-  # plot
-  plot(probability ~ degree, log = "xy", xlab = "Degree (log)", ylab = "Probability (log)", 
-       col = 1, main = "Degree Distribution")
-  curve(power.law.fit, col = "red", add = T, n = length(d))
-}
-
-
-fit_power_law(hp.graph)
-
-# Output
-write.graph(hp.graph, file = "../../data/harry-potter/harrypotter.01.graphml", format=c("graphml"))
-
 #################
 # OUTPUT FILES  #
 #################
+write.graph(hp.graph, file = "../../data/harry-potter/harrypotter.01.graphml", format=c("graphml"))
 write.csv(speakers.df, file = "../../data/harry-potter/harrypotter.01.speakers.csv", row.names = FALSE)
 
 #######################
@@ -374,4 +310,4 @@ write.csv(speakers.df, file = "../../data/harry-potter/harrypotter.01.speakers.c
 #######################
 
 
-spacy_finalize()
+#spacy_finalize()
