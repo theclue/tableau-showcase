@@ -38,9 +38,18 @@ hp.centrality <- data.frame(name = V(hp.graph)$name,
                             stringsAsFactors = FALSE)
 
 
-ego <- ego.extract(hp.sna)
+ego.graph <- make_ego_graph(hp.graph, nodes = "Harry Potter")
 
 hp.brokerage <- brokerage(hp.sna, cl = V(hp.graph)$affiliation)
+
+# Ironically, only Prof. McGonagall is a cut-vertex for just a minor ghost character (Fat Friar)
+hp.min_cut <- min_cut(hp.graph, value.only = FALSE)
+
+# How to break the graph. Harry alone is not enough, but along with Ron or Hagrid he is.
+is_separator(hp.graph, c("Harry Potter", "Ron Weasley"))
+
+# articulation points
+biconnected_components(hp.graph)
 
 ################
 # Attribute enrichment
@@ -74,8 +83,6 @@ plot(hp.graph,
      vertex.label= V(hp.graph)$name,
      vertex.label.color="black",
      vertex.size = 12)
-
-
 legend(x=-1.5,
        y=-1.1,
        unique(V(hp.graph)$affiliation),
@@ -86,6 +93,16 @@ legend(x=-1.5,
        cex=.8,
        bty="n",
        ncol=3)
+
+
+plot(ego.graph),
+     layout = layout_(ego.graph, with_lgl(root = "Harry Potter")),
+     edge.width=E(ego.graph)$weight/8,
+     edge.color=V(ego.graph)$color[ends(ego.graph, es=E(ego.graph), names=F)[,1]],
+     vertex.frame.color="#ffffff",
+     vertex.label= V(ego.graph)$name,
+     vertex.label.color="black",
+     vertex.size = 12)
 
 plot.degree.distribution(hp.graph.layout)
 
