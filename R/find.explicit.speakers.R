@@ -14,6 +14,8 @@ find.explicit.speakers <- function(novel.pos) {
       quotes.marks <- which(tokens$value == "\"")
       has.quotes <- length(quotes.marks) > 0
       
+      flog.trace(sprintf("[%s - %d] >> %s", n, ti, paste(sentences$content, collapse = " ")))
+      
       if(has.quotes){
         
         # I don't want dialogue utterances to be parsed as ppl "talking" inside dialogues are
@@ -42,10 +44,27 @@ find.explicit.speakers <- function(novel.pos) {
         
       } else {
         
+        # If the sentence ends with a question mark, it's probably a dubitative, so FOR NOW it's wiped
+        # TODO: a better recognition method
+        
+        tokens.q <- tokens
+        
+        if(tokens.q[nrow(tokens.q),]$value == "?"){
+          flog.debug(sprintf("[%s - %d] Line ends with a question mark, so it's probably a dubitative.", n, ti))
+          return(data.frame(index = index,
+                            quote = has.quotes,
+                            value = NA,
+                            proper = NA,
+                            gender = NA,
+                            type = NA,
+                            wikipedia_url = NA,
+                            speaker_type = "ambiguous",
+                            stringsAsFactors = FALSE))
+        }
+        
         # If the line has no dialogues, the entire sentence is parsed
         # but spotting a smaller list of verbs.
         
-        tokens.q <- tokens
         verbs <- (verbs.dictionary %>% filter(implicit.dialogue == TRUE))$verb
         
       }
@@ -77,6 +96,7 @@ find.explicit.speakers <- function(novel.pos) {
         filter((tag == "PRON" | tag == "NOUN") & proper == "PROPER_UNKNOWN")
       
       if(nrow(explicit.speakers) > 0){
+        
         flog.debug(sprintf("[%s - %d] Line has explicit candidates: %s", n, ti, paste(explicit.speakers$value, collapse = ", ")))
         
         return(explicit.speakers %>%
@@ -97,7 +117,6 @@ find.explicit.speakers <- function(novel.pos) {
           }
           
           flog.debug(sprintf("[%s - %d] Line has candidates, but POS was not able to isolate them", n, ti))
-          flog.trace(paste(">>", sentences$content, collapse = " "))
           return(data.frame(index = index,
                             quote = has.quotes,
                             value = NA,

@@ -221,7 +221,7 @@ if(initDict()) {
   ) %>%
     mutate("implicit.dialogue" = ifelse(is.na(implicit.dialogue), FALSE, implicit.dialogue))
   
-  verbs.dictionary <- verbs.dictionary[(verbs.dictionary$verb %nin% c("do")),]
+  verbs.dictionary <- verbs.dictionary[(verbs.dictionary$verb %nin% c("do", "take")),]
   
 }
 
@@ -236,19 +236,20 @@ if(initDict()) {
 # when analyzing western literature (or even a translation to western language).
 #
 
-#explicit.speakers <- find.explicit.speakers(hp.one.pos['054.04'])
+#explicit.speakers <- find.explicit.speakers(hp.one.pos['018.07'])
 explicit.speakers <- find.explicit.speakers(hp.one.pos)
 
 speakers.df <- do.call(plyr::rbind.fill, explicit.speakers) %>% filter(!is.na(conversation)) %>% inner_join(harrypotter.aliases) %>% select("conversation", "name", "dialogues")
 speakers.df <- unique(speakers.df)
 
-# Finally, push orphans to previous conversation
+# Finally, push orphans to previous conversation OPTIONAL
 
 conversation.sumup <- speakers.df %>% select(conversation) %>% mutate(n=1) %>% group_by(conversation) %>% summarise(n = sum(n))
 conversation.sumup$true.conversation <- ifelse(conversation.sumup$n==1, NA, conversation.sumup$conversation)
-conversation.sumup <- fill(conversation.sumup, true.conversation, .direction = "down")
+#conversation.sumup <- fill(conversation.sumup, true.conversation, .direction = "down")
+conversation.sumup <- conversation.sumup %>% filter(n>1)
 
-speakers.df <- speakers.df %>% left_join(conversation.sumup, by="conversation") %>%
+speakers.df <- speakers.df %>% inner_join(conversation.sumup, by="conversation") %>%
   select("conversation", "true.conversation", "name", "dialogues")
 
 speakers.df$true.conversation <- ifelse(is.na(speakers.df$true.conversation), speakers.df$conversation, speakers.df$true.conversation)

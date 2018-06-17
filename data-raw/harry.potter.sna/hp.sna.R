@@ -3,7 +3,7 @@
 ######################
 if (!require("pacman")) install.packages("pacman"); invisible(library(pacman))
 tryCatch({
-  p_load("tidyverse", "futile.logger", "Hmisc", "igraph", "sna", "poweRlaw", "intergraph", "RColorBrewer")
+  p_load("tidyverse", "futile.logger", "Hmisc", "igraph", "sna", "poweRlaw", "intergraph", "RColorBrewer", "knitr")
 }, warning=function(w){
   stop(conditionMessage(w))
 })
@@ -42,7 +42,6 @@ ego.graph <- make_ego_graph(hp.graph, nodes = "Harry Potter")
 
 hp.brokerage <- brokerage(hp.sna, cl = V(hp.graph)$affiliation)
 
-# Ironically, only Prof. McGonagall is a cut-vertex for just a minor ghost character (Fat Friar)
 hp.min_cut <- min_cut(hp.graph, value.only = FALSE)
 
 # How to break the graph. Harry alone is not enough, but along with Ron or Hagrid he is.

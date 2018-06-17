@@ -20,9 +20,9 @@
       <data key="v_label">Vernon Dursley</data>
       <data key="v_id">Vernon Dursley</data>
       <data key="v_color">#D53E4F</data>
-      <data key="v_size">0.385185185185185</data>
-      <data key="v_x">75.5757216941209</data>
-      <data key="v_y">-3.17760656708241</data>
+      <data key="v_size">0.430555555555556</data>
+      <data key="v_x">6.39747070089192</data>
+      <data key="v_y">-10.368080266349</data>
     </node>
     <node id="n1">
       <data key="v_name">Petunia Dursley</data>
@@ -31,8 +31,8 @@
       <data key="v_id">Petunia Dursley</data>
       <data key="v_color">#D53E4F</data>
       <data key="v_size">0</data>
-      <data key="v_x">74.0083089129593</data>
-      <data key="v_y">-5.70009602016054</data>
+      <data key="v_x">3.49454691967045</data>
+      <data key="v_y">-10.027846430735</data>
     </node>
     <node id="n2">
       <data key="v_name">Dudley Dursley</data>
@@ -40,9 +40,9 @@
       <data key="v_label">Dudley Dursley</data>
       <data key="v_id">Dudley Dursley</data>
       <data key="v_color">#D53E4F</data>
-      <data key="v_size">0.709589947089947</data>
-      <data key="v_x">70.5185517909163</data>
-      <data key="v_y">-6.10682992764122</data>
+      <data key="v_size">0</data>
+      <data key="v_x">7.30951437040658</data>
+      <data key="v_y">-8.05777675005696</data>
     </node>
     <node id="n3">
       <data key="v_name">Dedalus Diggle</data>
@@ -51,8 +51,8 @@
       <data key="v_id">Dedalus Diggle</data>
       <data key="v_color">#F46D43</data>
       <data key="v_size">0</data>
-      <data key="v_x">61.434909375476</data>
-      <data key="v_y">1.81298710278572</data>
+      <data key="v_x">1.08926003808271</data>
+      <data key="v_y">-21.1450989533221</data>
     </node>
     <node id="n4">
       <data key="v_name">Minerva McGonagall</data>
@@ -60,9 +60,9 @@
       <data key="v_label">Minerva McGonagall</data>
       <data key="v_id">Minerva McGonagall</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">7.62222222222222</data>
-      <data key="v_x">70.60019191237</data>
-      <data key="v_y">-3.98682034944623</data>
+      <data key="v_size">6.07242063492064</data>
+      <data key="v_x">9.43935032117139</data>
+      <data key="v_y">-20.532996454502</data>
     </node>
     <node id="n5">
       <data key="v_name">Albus Dumbledore</data>
@@ -70,9 +70,9 @@
       <data key="v_label">Albus Dumbledore</data>
       <data key="v_id">Albus Dumbledore</data>
       <data key="v_color">#FEE08B</data>
-      <data key="v_size">1.67347883597884</data>
-      <data key="v_x">67.1815112627719</data>
-      <data key="v_y">-2.95062414957739</data>
+      <data key="v_size">0.396626984126984</data>
+      <data key="v_x">7.80202608308096</data>
+      <data key="v_y">-21.8386311258101</data>
     </node>
     <node id="n6">
       <data key="v_name">Harry Potter</data>
@@ -80,9 +80,9 @@
       <data key="v_label">Harry Potter</data>
       <data key="v_id">Harry Potter</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">35.8721560846561</data>
-      <data key="v_x">69.1812968981656</data>
-      <data key="v_y">-2.4116173583415</data>
+      <data key="v_size">46.2410714285714</data>
+      <data key="v_x">4.6447369353636</data>
+      <data key="v_y">-16.1724882781922</data>
     </node>
     <node id="n7">
       <data key="v_name">Rubeus Hagrid</data>
@@ -90,9 +90,9 @@
       <data key="v_label">Rubeus Hagrid</data>
       <data key="v_id">Rubeus Hagrid</data>
       <data key="v_color">#FEE08B</data>
-      <data key="v_size">11.0933201058201</data>
-      <data key="v_x">70.02798366746</data>
-      <data key="v_y">-0.141124240023725</data>
+      <data key="v_size">15.722619047619</data>
+      <data key="v_x">6.26572744052427</data>
+      <data key="v_y">-14.1310332242071</data>
     </node>
     <node id="n8">
       <data key="v_name">Quirinus Quirrell</data>
@@ -100,9 +100,9 @@
       <data key="v_label">Quirinus Quirrell</data>
       <data key="v_id">Quirinus Quirrell</data>
       <data key="v_color">#FEE08B</data>
-      <data key="v_size">1.78882275132275</data>
-      <data key="v_x">64.3652469923554</data>
-      <data key="v_y">-2.27586142194331</data>
+      <data key="v_size">1.70496031746032</data>
+      <data key="v_x">4.171167884137</data>
+      <data key="v_y">-22.5213145798118</data>
     </node>
     <node id="n9">
       <data key="v_name">Griphook</data>
@@ -111,8 +111,8 @@
       <data key="v_id">Griphook</data>
       <data key="v_color">#FFFFBF</data>
       <data key="v_size">0</data>
-      <data key="v_x">70.9235496777687</data>
-      <data key="v_y">7.7387690959177</data>
+      <data key="v_x">3.4563719807431</data>
+      <data key="v_y">-8.36317491882252</data>
     </node>
     <node id="n10">
       <data key="v_name">Madam Malkin</data>
@@ -121,8 +121,8 @@
       <data key="v_id">Madam Malkin</data>
       <data key="v_color">#E6F598</data>
       <data key="v_size">0</data>
-      <data key="v_x">71.1153738592693</data>
-      <data key="v_y">-10.8024945486305</data>
+      <data key="v_x">14.8728531460377</data>
+      <data key="v_y">-14.1958225975201</data>
     </node>
     <node id="n11">
       <data key="v_name">Garrick Ollivander</data>
@@ -131,8 +131,8 @@
       <data key="v_id">Garrick Ollivander</data>
       <data key="v_color">#E6F598</data>
       <data key="v_size">0</data>
-      <data key="v_x">66.2498995929441</data>
-      <data key="v_y">6.50922110352618</data>
+      <data key="v_x">-2.05486035000859</data>
+      <data key="v_y">-10.0140015923186</data>
     </node>
     <node id="n12">
       <data key="v_name">Percival Weasley</data>
@@ -140,9 +140,9 @@
       <data key="v_label">Percival Weasley</data>
       <data key="v_id">Percival Weasley</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">0.519642857142857</data>
-      <data key="v_x">65.6496543110142</data>
-      <data key="v_y">-2.89277253695097</data>
+      <data key="v_size">0.505555555555556</data>
+      <data key="v_x">4.02613072076656</data>
+      <data key="v_y">-20.8133674712694</data>
     </node>
     <node id="n13">
       <data key="v_name">Ron Weasley</data>
@@ -150,9 +150,9 @@
       <data key="v_label">Ron Weasley</data>
       <data key="v_id">Ron Weasley</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">7.97215608465608</data>
-      <data key="v_x">69.352830164074</data>
-      <data key="v_y">-1.17897229279738</data>
+      <data key="v_size">7.56884920634921</data>
+      <data key="v_x">7.12611727528395</data>
+      <data key="v_y">-17.2120747428213</data>
     </node>
     <node id="n14">
       <data key="v_name">Fred Weasley</data>
@@ -160,9 +160,9 @@
       <data key="v_label">Fred Weasley</data>
       <data key="v_id">Fred Weasley</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">0.484854497354497</data>
-      <data key="v_x">70.3770707391082</data>
-      <data key="v_y">2.44278609074481</data>
+      <data key="v_size">0.333531746031746</data>
+      <data key="v_x">1.12376142889431</data>
+      <data key="v_y">-17.5423031427548</data>
     </node>
     <node id="n15">
       <data key="v_name">George Weasley</data>
@@ -170,9 +170,9 @@
       <data key="v_label">George Weasley</data>
       <data key="v_id">George Weasley</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">0.484854497354497</data>
-      <data key="v_x">72.4071280619272</data>
-      <data key="v_y">1.89332380972294</data>
+      <data key="v_size">0.333531746031746</data>
+      <data key="v_x">-0.185563815158799</data>
+      <data key="v_y">-15.9560236742565</data>
     </node>
     <node id="n16">
       <data key="v_name">Molly Weasley</data>
@@ -181,8 +181,8 @@
       <data key="v_id">Molly Weasley</data>
       <data key="v_color">#FDAE61</data>
       <data key="v_size">0</data>
-      <data key="v_x">76.5790972904325</data>
-      <data key="v_y">0.436197444170009</data>
+      <data key="v_x">10.4794288061125</data>
+      <data key="v_y">-12.1771109090365</data>
     </node>
     <node id="n17">
       <data key="v_name">Nearly Headless Nick</data>
@@ -191,8 +191,8 @@
       <data key="v_id">Nearly Headless Nick</data>
       <data key="v_color">#FDAE61</data>
       <data key="v_size">0</data>
-      <data key="v_x">66.377803567678</data>
-      <data key="v_y">-7.61561583562344</data>
+      <data key="v_x">8.83738161233675</data>
+      <data key="v_y">-23.8746335076162</data>
     </node>
     <node id="n18">
       <data key="v_name">Seamus Finnigan</data>
@@ -200,9 +200,9 @@
       <data key="v_label">Seamus Finnigan</data>
       <data key="v_id">Seamus Finnigan</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">0.142791005291005</data>
-      <data key="v_x">64.9334492056919</data>
-      <data key="v_y">-5.64435943266</data>
+      <data key="v_size">0.191666666666667</data>
+      <data key="v_x">6.25789132957309</data>
+      <data key="v_y">-24.318876419121</data>
     </node>
     <node id="n19">
       <data key="v_name">Neville Longbottom</data>
@@ -210,9 +210,9 @@
       <data key="v_label">Neville Longbottom</data>
       <data key="v_id">Neville Longbottom</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">0.449338624338624</data>
-      <data key="v_x">68.0039381944376</data>
-      <data key="v_y">-5.68170116525403</data>
+      <data key="v_size">0.371626984126984</data>
+      <data key="v_x">6.67133744744024</data>
+      <data key="v_y">-20.1391758683037</data>
     </node>
     <node id="n20">
       <data key="v_name">Severus Snape</data>
@@ -221,8 +221,8 @@
       <data key="v_id">Severus Snape</data>
       <data key="v_color">#ABDDA4</data>
       <data key="v_size">0</data>
-      <data key="v_x">64.7284836476229</data>
-      <data key="v_y">2.53810102678469</data>
+      <data key="v_x">12.5446063148537</data>
+      <data key="v_y">-17.8853447484059</data>
     </node>
     <node id="n21">
       <data key="v_name">Draco Malfoy</data>
@@ -230,9 +230,9 @@
       <data key="v_label">Draco Malfoy</data>
       <data key="v_id">Draco Malfoy</data>
       <data key="v_color">#ABDDA4</data>
-      <data key="v_size">1.9765873015873</data>
-      <data key="v_x">72.4737528915219</data>
-      <data key="v_y">-3.14962518881237</data>
+      <data key="v_size">2.4015873015873</data>
+      <data key="v_x">4.3323178362531</data>
+      <data key="v_y">-18.7059493621769</data>
     </node>
     <node id="n22">
       <data key="v_name">Rolanda Hooch</data>
@@ -240,9 +240,9 @@
       <data key="v_label">Rolanda Hooch</data>
       <data key="v_id">Rolanda Hooch</data>
       <data key="v_color">#FEE08B</data>
-      <data key="v_size">5.66666666666667</data>
-      <data key="v_x">75.5948662225585</data>
-      <data key="v_y">-7.56873836971434</data>
+      <data key="v_size">5.83333333333333</data>
+      <data key="v_x">1.17435314718834</data>
+      <data key="v_y">-23.9103194554428</data>
     </node>
     <node id="n23">
       <data key="v_name">Pansy Parkinson</data>
@@ -251,8 +251,8 @@
       <data key="v_id">Pansy Parkinson</data>
       <data key="v_color">#ABDDA4</data>
       <data key="v_size">0</data>
-      <data key="v_x">78.3588201179063</data>
-      <data key="v_y">-2.86037076976082</data>
+      <data key="v_x">-1.28919464311436</data>
+      <data key="v_y">-19.9134930788163</data>
     </node>
     <node id="n24">
       <data key="v_name">Hermione Granger</data>
@@ -260,9 +260,9 @@
       <data key="v_label">Hermione Granger</data>
       <data key="v_id">Hermione Granger</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">5.86369047619048</data>
-      <data key="v_x">71.6463667568566</data>
-      <data key="v_y">-1.00716638616541</data>
+      <data key="v_size">6.47777777777778</data>
+      <data key="v_x">6.12506273768007</data>
+      <data key="v_y">-16.0250010149881</data>
     </node>
     <node id="n25">
       <data key="v_name">Oliver Wood</data>
@@ -270,9 +270,9 @@
       <data key="v_label">Oliver Wood</data>
       <data key="v_id">Oliver Wood</data>
       <data key="v_color">#FDAE61</data>
-      <data key="v_size">1.07843915343915</data>
-      <data key="v_x">73.8835824038946</data>
-      <data key="v_y">-1.18301715574327</data>
+      <data key="v_size">0.542063492063492</data>
+      <data key="v_x">3.26208447079115</data>
+      <data key="v_y">-15.2210696830069</data>
     </node>
     <node id="n26">
       <data key="v_name">Peeves</data>
@@ -281,8 +281,8 @@
       <data key="v_id">Peeves</data>
       <data key="v_color">#FEE08B</data>
       <data key="v_size">0</data>
-      <data key="v_x">62.4482882107597</data>
-      <data key="v_y">-3.18801290197998</data>
+      <data key="v_x">9.52484517324602</data>
+      <data key="v_y">-9.96308919202201</data>
     </node>
     <node id="n27">
       <data key="v_name">Argus Filch</data>
@@ -290,9 +290,9 @@
       <data key="v_label">Argus Filch</data>
       <data key="v_id">Argus Filch</data>
       <data key="v_color">#FEE08B</data>
-      <data key="v_size">0.203703703703704</data>
-      <data key="v_x">67.2986628129309</data>
-      <data key="v_y">2.95358925517225</data>
+      <data key="v_size">0.172222222222222</data>
+      <data key="v_x">8.80414669434548</data>
+      <data key="v_y">-14.1069130715314</data>
     </node>
     <node id="n28">
       <data key="v_name">Angelina Johnson</data>
@@ -301,8 +301,8 @@
       <data key="v_id">Angelina Johnson</data>
       <data key="v_color">#FDAE61</data>
       <data key="v_size">0</data>
-      <data key="v_x">75.0394348648461</data>
-      <data key="v_y">3.21909888704625</data>
+      <data key="v_x">1.30542490950907</data>
+      <data key="v_y">-12.8755469890497</data>
     </node>
     <node id="n29">
       <data key="v_name">Lee Jordan</data>
@@ -311,8 +311,8 @@
       <data key="v_id">Lee Jordan</data>
       <data key="v_color">#FDAE61</data>
       <data key="v_size">0</data>
-      <data key="v_x">72.6914951799236</data>
-      <data key="v_y">4.88351754145222</data>
+      <data key="v_x">1.01491184633665</data>
+      <data key="v_y">-14.7947444889612</data>
     </node>
     <node id="n30">
       <data key="v_name">Dean Thomas</data>
@@ -321,8 +321,8 @@
       <data key="v_id">Dean Thomas</data>
       <data key="v_color">#FDAE61</data>
       <data key="v_size">0</data>
-      <data key="v_x">76.3587140853245</data>
-      <data key="v_y">-13.6976619654636</data>
+      <data key="v_x">1.41414683325266</data>
+      <data key="v_y">-29.9963135056017</data>
     </node>
     <node id="n31">
       <data key="v_name">Firenze</data>
@@ -331,8 +331,8 @@
       <data key="v_id">Firenze</data>
       <data key="v_color">#FEE08B</data>
       <data key="v_size">0</data>
-      <data key="v_x">69.6688332550765</data>
-      <data key="v_y">-9.39341820333667</data>
+      <data key="v_x">-4.98474498496722</data>
+      <data key="v_y">-15.316803423358</data>
     </node>
     <node id="n32">
       <data key="v_name">Voldemort</data>
@@ -341,8 +341,8 @@
       <data key="v_id">Voldemort</data>
       <data key="v_color">#ABDDA4</data>
       <data key="v_size">0</data>
-      <data key="v_x">59.2012000758908</data>
-      <data key="v_y">-3.78687768253197</data>
+      <data key="v_x">-3.40398862590588</data>
+      <data key="v_y">-21.4247579202601</data>
     </node>
     <node id="n33">
       <data key="v_name">Poppy Pomfrey</data>
@@ -351,8 +351,8 @@
       <data key="v_id">Poppy Pomfrey</data>
       <data key="v_color">#FEE08B</data>
       <data key="v_size">0</data>
-      <data key="v_x">63.7399194768391</data>
-      <data key="v_y">-8.62020676917547</data>
+      <data key="v_x">12.4398252532748</data>
+      <data key="v_y">-9.28825676750255</data>
     </node>
     <node id="n34">
       <data key="v_name">Fat Friar</data>
@@ -361,8 +361,8 @@
       <data key="v_id">Fat Friar</data>
       <data key="v_color">#66C2A5</data>
       <data key="v_size">0</data>
-      <data key="v_x">79.3461758451013</data>
-      <data key="v_y">-8.5116198252642</data>
+      <data key="v_x">14.7110258530267</data>
+      <data key="v_y">-23.5608788723652</data>
     </node>
     <node id="n35">
       <data key="v_name">Filius Flitwick</data>
@@ -370,21 +370,28 @@
       <data key="v_label">Filius Flitwick</data>
       <data key="v_id">Filius Flitwick</data>
       <data key="v_color">#3288BD</data>
-      <data key="v_size">0.345833333333333</data>
-      <data key="v_x">66.7214841098715</data>
-      <data key="v_y">0.570521968245674</data>
+      <data key="v_size">0.0333333333333333</data>
+      <data key="v_x">10.2846912500384</data>
+      <data key="v_y">-17.884713242893</data>
+    </node>
+    <node id="n36">
+      <data key="v_name">Ronan</data>
+      <data key="v_affiliation">Hogwarts</data>
+      <data key="v_label">Ronan</data>
+      <data key="v_id">Ronan</data>
+      <data key="v_color">#FEE08B</data>
+      <data key="v_size">0</data>
+      <data key="v_x">9.5829594876323</data>
+      <data key="v_y">-14.8676338726687</data>
     </node>
     <edge source="n0" target="n1">
-      <data key="e_weight">9</data>
+      <data key="e_weight">6</data>
     </edge>
     <edge source="n0" target="n2">
-      <data key="e_weight">10</data>
-    </edge>
-    <edge source="n0" target="n4">
-      <data key="e_weight">1</data>
+      <data key="e_weight">5</data>
     </edge>
     <edge source="n0" target="n6">
-      <data key="e_weight">11</data>
+      <data key="e_weight">6</data>
     </edge>
     <edge source="n0" target="n7">
       <data key="e_weight">2</data>
@@ -398,55 +405,19 @@
     <edge source="n0" target="n24">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n0" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n1" target="n2">
-      <data key="e_weight">7</data>
-    </edge>
-    <edge source="n1" target="n4">
-      <data key="e_weight">1</data>
+      <data key="e_weight">5</data>
     </edge>
     <edge source="n1" target="n6">
-      <data key="e_weight">7</data>
+      <data key="e_weight">3</data>
     </edge>
     <edge source="n1" target="n7">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n1" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n4">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n2" target="n5">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n2" target="n6">
-      <data key="e_weight">12</data>
+      <data key="e_weight">6</data>
     </edge>
     <edge source="n2" target="n7">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n2" target="n8">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n12">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n13">
-      <data key="e_weight">2</data>
-    </edge>
-    <edge source="n2" target="n17">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n18">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n19">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n2" target="n25">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n3" target="n6">
@@ -462,19 +433,19 @@
       <data key="e_weight">2</data>
     </edge>
     <edge source="n4" target="n6">
-      <data key="e_weight">5</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n4" target="n7">
-      <data key="e_weight">3</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n4" target="n8">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n12">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n13">
-      <data key="e_weight">6</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n4" target="n17">
       <data key="e_weight">1</data>
@@ -485,44 +456,26 @@
     <edge source="n4" target="n19">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n4" target="n20">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n4" target="n24">
-      <data key="e_weight">2</data>
-    </edge>
     <edge source="n4" target="n25">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n4" target="n27">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n4" target="n34">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n4" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n5" target="n6">
-      <data key="e_weight">6</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n5" target="n7">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n5" target="n8">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n5" target="n12">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n5" target="n13">
-      <data key="e_weight">5</data>
-    </edge>
-    <edge source="n5" target="n14">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n15">
-      <data key="e_weight">1</data>
+      <data key="e_weight">3</data>
     </edge>
     <edge source="n5" target="n17">
       <data key="e_weight">1</data>
@@ -539,17 +492,11 @@
     <edge source="n5" target="n24">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n33">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n5" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n6" target="n7">
-      <data key="e_weight">24</data>
+      <data key="e_weight">20</data>
     </edge>
     <edge source="n6" target="n8">
-      <data key="e_weight">6</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n6" target="n9">
       <data key="e_weight">1</data>
@@ -564,7 +511,7 @@
       <data key="e_weight">4</data>
     </edge>
     <edge source="n6" target="n13">
-      <data key="e_weight">42</data>
+      <data key="e_weight">37</data>
     </edge>
     <edge source="n6" target="n14">
       <data key="e_weight">3</data>
@@ -585,10 +532,10 @@
       <data key="e_weight">5</data>
     </edge>
     <edge source="n6" target="n20">
-      <data key="e_weight">6</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n6" target="n21">
-      <data key="e_weight">5</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n6" target="n22">
       <data key="e_weight">1</data>
@@ -597,16 +544,16 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n6" target="n24">
-      <data key="e_weight">24</data>
+      <data key="e_weight">21</data>
     </edge>
     <edge source="n6" target="n25">
-      <data key="e_weight">5</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n6" target="n26">
       <data key="e_weight">2</data>
     </edge>
     <edge source="n6" target="n27">
-      <data key="e_weight">4</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n6" target="n28">
       <data key="e_weight">1</data>
@@ -624,7 +571,10 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n6" target="n35">
-      <data key="e_weight">4</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n6" target="n36">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n7" target="n8">
       <data key="e_weight">1</data>
@@ -654,16 +604,16 @@
       <data key="e_weight">3</data>
     </edge>
     <edge source="n7" target="n21">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n7" target="n24">
-      <data key="e_weight">9</data>
+      <data key="e_weight">8</data>
     </edge>
     <edge source="n7" target="n25">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n7" target="n27">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n7" target="n28">
       <data key="e_weight">1</data>
@@ -677,11 +627,14 @@
     <edge source="n7" target="n35">
       <data key="e_weight">1</data>
     </edge>
+    <edge source="n7" target="n36">
+      <data key="e_weight">1</data>
+    </edge>
     <edge source="n8" target="n12">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n8" target="n13">
-      <data key="e_weight">4</data>
+      <data key="e_weight">3</data>
     </edge>
     <edge source="n8" target="n17">
       <data key="e_weight">1</data>
@@ -693,13 +646,13 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n8" target="n24">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n8" target="n32">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n12" target="n13">
-      <data key="e_weight">6</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n12" target="n14">
       <data key="e_weight">1</data>
@@ -716,14 +669,11 @@
     <edge source="n12" target="n19">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n12" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n13" target="n14">
-      <data key="e_weight">4</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n13" target="n15">
-      <data key="e_weight">4</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n13" target="n16">
       <data key="e_weight">1</data>
@@ -738,22 +688,22 @@
       <data key="e_weight">6</data>
     </edge>
     <edge source="n13" target="n20">
-      <data key="e_weight">5</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n13" target="n21">
-      <data key="e_weight">5</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n13" target="n24">
-      <data key="e_weight">24</data>
+      <data key="e_weight">21</data>
     </edge>
     <edge source="n13" target="n25">
-      <data key="e_weight">3</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n13" target="n26">
       <data key="e_weight">2</data>
     </edge>
     <edge source="n13" target="n27">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n13" target="n28">
       <data key="e_weight">1</data>
@@ -761,11 +711,8 @@
     <edge source="n13" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n13" target="n31">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n13" target="n35">
-      <data key="e_weight">5</data>
+      <data key="e_weight">3</data>
     </edge>
     <edge source="n14" target="n15">
       <data key="e_weight">3</data>
@@ -785,9 +732,6 @@
     <edge source="n14" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n14" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n15" target="n21">
       <data key="e_weight">1</data>
     </edge>
@@ -803,9 +747,6 @@
     <edge source="n15" target="n29">
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n15" target="n35">
-      <data key="e_weight">1</data>
-    </edge>
     <edge source="n16" target="n24">
       <data key="e_weight">1</data>
     </edge>
@@ -819,9 +760,6 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n18" target="n21">
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n19" target="n21">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n19" target="n24">
@@ -843,12 +781,15 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n21" target="n24">
-      <data key="e_weight">5</data>
+      <data key="e_weight">4</data>
     </edge>
     <edge source="n21" target="n27">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n21" target="n35">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n21" target="n36">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n22" target="n23">
@@ -864,16 +805,19 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n24" target="n25">
-      <data key="e_weight">2</data>
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n24" target="n26">
       <data key="e_weight">2</data>
     </edge>
     <edge source="n24" target="n27">
-      <data key="e_weight">3</data>
+      <data key="e_weight">2</data>
     </edge>
     <edge source="n24" target="n35">
       <data key="e_weight">2</data>
+    </edge>
+    <edge source="n24" target="n36">
+      <data key="e_weight">1</data>
     </edge>
     <edge source="n25" target="n28">
       <data key="e_weight">1</data>
@@ -882,6 +826,9 @@
       <data key="e_weight">1</data>
     </edge>
     <edge source="n26" target="n27">
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n27" target="n36">
       <data key="e_weight">1</data>
     </edge>
     <edge source="n28" target="n29">
