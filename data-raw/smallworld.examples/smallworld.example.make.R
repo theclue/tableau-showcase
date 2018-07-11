@@ -98,11 +98,16 @@ vis.y <- c(0.2524424,
            -1.0000000,
            -0.6346642)
 
-V(smallworld.example)$name <- as.matrix(V(smallworld.example))[,1]
 
 smallworld.sna <- intergraph::asNetwork(smallworld.example)
 
+V(smallworld.example)$name <- as.matrix(V(smallworld.example))[,1]
+
 smallworld.stats <- data.frame(name = V(smallworld.example)$name,
+                               degree.std = sna::degree(smallworld.sna, gmode = "digraph"),
+                               degree.norm = sna::degree(smallworld.sna, gmode = "digraph", rescale = TRUE),
+                               degree.in = sna::degree(smallworld.sna, gmode = "digraph", cmode="indegree"),
+                               degree.out = sna::degree(smallworld.sna, gmode = "digraph", cmode = "outdegree"),
                                betweeness.std = sna::betweenness(smallworld.sna, gmode = "graph", cmode = "undirected"),
                                betweeness.linear = sna::betweenness(smallworld.sna, gmode = "graph", cmode = "linearscaled"),
                                betweeness.proximal = sna::betweenness(smallworld.sna, gmode = "graph", cmode = "proximalsrc"),
@@ -117,12 +122,20 @@ smallworld.stats <- data.frame(name = V(smallworld.example)$name,
 brewer.pal(n = length(unique(smallworld.stats$kcore.all)), name = "Pastel2")
 
 V(smallworld.example)$color <- factor(smallworld.stats$kcore.all, labels = brewer.pal(n = length(unique(smallworld.stats$kcore.all)), name = "Pastel2"))
+V(smallworld.example)$size <- smallworld.stats$degree.std*5
+
+#V(smallworld.example)$name <- paste(as.matrix(V(smallworld.example))[,1], smallworld.stats$degree.std, sep = " - ")
 
 vis.widget <- 
   #visNetwork(smallworld.data$nodes, smallworld.data$edges, width = "100%", height = "450px") %>%
   #visIgraphLayout(layout = "layout_with_fr") %>% 
   visIgraph(smallworld.example) %>% 
-  visNodes(shadow = TRUE, group = smallworld.stats$kcore.all, x = vis.x, y = vis.y) %>%
+  visNodes(shadow = TRUE, 
+           group = smallworld.stats$kcore.all,
+           x = vis.x,
+           y = vis.y,
+           title = "don't care",
+           scaling = list(min = 10, max = 50)) %>%
   visOptions(width = "100%",
              #height = "100%",
              highlightNearest = list(enabled = TRUE, algorithm = "hierarchical"),
@@ -140,8 +153,18 @@ vis.widget$width = "100%"
 vis.widget$height = "450px"
 vis.widget$sizingPolicy$browser$padding <- "0px"
 
-vis.widget %>% htmlwidgets::saveWidget(file = "smallworld.example.html", selfcontained = FALSE, libdir = "assets")
+vis.widget$x$nodes$title <- sprintf("<strong>Total Degree: %d</strong><br />In-Degree: %d<br />Out-Degree: %d", smallworld.stats$degree.std, smallworld.stats$degree.in, smallworld.stats$degree.out)
 
+vis.widget %>% htmlwidgets::saveWidget(file = "smallworld.degree.example.html", selfcontained = FALSE, libdir = "assets")
 
+###################
+# TOY NETWORKS    #
+###################
 
+star.network <- make_star(8, mode = "undirected")
+line.network <- make_lattice(length = 5, dim = 1) # %>% add_layout_(as_tree(root = 1))
+lattice.network <- make_lattice(length = 6, dim = 1, circular = TRUE)
 
+line.layout <- line.network %>% layout_as_tree(root = 1)
+
+plot(line.network, layout=-line.layout[, 2:1])
