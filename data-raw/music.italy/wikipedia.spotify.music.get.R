@@ -3,7 +3,7 @@
 ######################
 if (!require("pacman")) install.packages("pacman"); invisible(library(pacman))
 tryCatch({
-  p_load("tidyverse", "rvest", "httr", "RCurl", "jsonlite", "futile.logger", "httpuv")
+  p_load("tidyverse", "rvest", "httr", "RCurl", "jsonlite", "futile.logger", "httpuv", "igraph")
   p_load_gh("tiagomendesdantas/Rspotify")
 }, warning=function(w){
   stop(conditionMessage(w))
@@ -179,7 +179,8 @@ italian.artists.lookup.missing <- left_join(italian.artists.missing %>% select(-
 ########################
 italian.artists.clean <- unique(plyr::rbind.fill(italian.artists.lookup %>% filter(!is.na(spotify.id)), italian.artists.lookup.missing))
 italian.artists.clean <- italian.artists.clean %>% filter(name %in% names(table(italian.artists.clean$name))[which(table(italian.artists.clean$name) == 1)]) %>%
-  select(-name.tolow)
+  select(-name.tolow) %>%
+  select(spotify.id, name, genre, wikipedia.id, start.activity, popularity, followers)
  
 # Those crawled from Spotify's rerun are finally checked for related once more
 italian.artists.missing.related <- do.call(plyr::rbind.fill, lapply(seq_len(NROW(italian.artists.lookup.missing)), function(i, data){
@@ -225,7 +226,9 @@ italian.artists.related.italian <- unique(italian.artists.related.italian)
 # -
 # Use the start.activity to set the influence. If a 'related' has started her music career paste the parent
 # for at least 3 years it's safe to assume that it was influenced by whom.
-# Other links are reversed or removed
+# Other links are reversed and, if duplicated, are then removed
+
+influence.threshold <- 5
 
 influences.edges <- unique(left_join(italian.artists.related.italian,
                               italian.artists.clean %>% select("spotify.id", start.activity),
@@ -236,14 +239,27 @@ influences.edges <- unique(left_join(italian.artists.related.italian,
             by=c("target" = "spotify.id")) %>%
   mutate(target.start = start.activity) %>%
   select(-start.activity) %>%
-  filter(abs(target.start - source.start) >= 3) %>%
-  mutate(target.flip = ifelse(target.start <= source.start - 3, target, source)) %>%
-  mutate(target.name.flip = ifelse(target.start <= source.start - 3, target.name, source.name)) %>%
-  mutate(source.flip = ifelse(target.start <= source.start - 3, source, target)) %>%
-  mutate(source.name.flip = ifelse(target.start <= source.start - 3, source.name, target.name)) %>%
+  filter(abs(target.start - source.start) >= influence.threshold) %>%
+  mutate(target.flip = ifelse(target.start <= source.start - influence.threshold, target, source)) %>%
+  mutate(target.name.flip = ifelse(target.start <= source.start - influence.threshold, target.name, source.name)) %>%
+  mutate(source.flip = ifelse(target.start <= source.start - influence.threshold, source, target)) %>%
+  mutate(source.name.flip = ifelse(target.start <= source.start - influence.threshold, source.name, target.name)) %>%
   mutate(source = source.flip, source.name = source.name.flip, target = target.flip, target.name = target.name.flip) %>%
-  select(source, source.name, target, target.name))
+  select(source,target))
 
-##############
-# SAVE FILES #
-##############
+italian.music <- graph_from_data_frame(influences.edges,
+                                       directed = TRUE,
+                                       vertices = italian.artists.clean)
+
+italian.music <- simplify(italian.music)
+
+V(italian.music)$label <- V(italian.music)$name
+V(italian.music)$spotify.id <- italian.artists.clean$spotify.id
+
+#################
+# OUTPUT FILES  #
+#################
+write.graph(italian.music, file = "../../data/italian-music/italian-music.graphml", format=c("graphml"))
+write.csv(italian.artists.clean, file = "../../data/italian-music/italian.artists.csv", row.names = FALSE)
+write.csv(influences.edges, file = "../../data/italian-music/italian.influences.csv", row.names = FALSE)
+
