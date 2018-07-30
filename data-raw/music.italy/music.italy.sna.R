@@ -8,7 +8,7 @@ tryCatch({
   stop(conditionMessage(w))
 })
 
-sapply(file.path("..", "..", "R", c("fit.power.law.R")),
+sapply(file.path("..", "..", "R", c("fit.power.law.R", "giant.component.R")),
        source,
        .GlobalEnv)
 
