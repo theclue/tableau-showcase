@@ -1,4 +1,4 @@
-fit.power.law = function(graph) {
+fit.power.law = function(graph, line.col = "red", ...) {
   # calculate degree
   d = igraph::degree(graph)
   dd = igraph::degree.distribution(graph, cumulative = FALSE)
@@ -16,7 +16,6 @@ fit.power.law = function(graph) {
   print(paste("Alpha =", round(alpha, 3)))
   print(paste("R square =", round(R.square, 3)))
   # plot
-  plot(probability ~ degree, log = "xy", xlab = "Degree (log)", ylab = "Probability (log)", 
-       col = 1, main = "Degree Distribution")
-  curve(power.law.fit, col = "red", add = T, n = length(d))
+  plot(probability ~ degree, log = "xy", ...)
+  curve(power.law.fit, col = line.col, add = T, n = length(d))
 }

@@ -35,8 +35,8 @@ vectors.plot <- function(a, m){
   arrows(0, 0, a[1], a[2], length = .1, lwd = 3, col = "gray6")
   arrows(0, 0,    0, a[2], length = .1, lwd = 2, col = "firebrick3")
   arrows(0, 0, a[1],    0, length = .1, lwd = 2, col = "forestgreen")
-  segments(a[1], 0, a[1], a[2], length = .1, lwd = 1, col = "forestgreen", lty = 2)
-  segments(0, a[2], a[1], a[2], length = .1, lwd = 1, col = "firebrick3", lty = 2)
+  segments(a[1], 0, a[1], a[2], lwd = 1, col = "forestgreen", lty = 2)
+  segments(0, a[2], a[1], a[2], lwd = 1, col = "firebrick3", lty = 2)
   text(a[1] + .1, a[2] + .1, 'a', col = "gray6")
   text(-.1, a[2]/2, expression('a'['x']), col = "firebrick3")
   text(a[1]/2, 0.2, expression('a'['y']), col = "forestgreen")
@@ -45,10 +45,12 @@ vectors.plot <- function(a, m){
   arrows(0, 0, b[1], b[2], length = .1, lwd = 3, col = "deepskyblue3")
   arrows(0, 0,    0, b[2], length = .1, lwd = 2, col = "dodgerblue4")
   arrows(0, 0, b[1],    0, length = .1, lwd = 2, col = "darkslateblue")
-  segments(b[1], 0, b[1], b[2], length = .1, lwd = 1, col = "darkslateblue", lty = 2)
-  segments(0, b[2], b[1], b[2], length = .1, lwd = 1, col = "dodgerblue4", lty = 2)
+  segments(b[1], 0, b[1], b[2], lwd = 1, col = "darkslateblue", lty = 2)
+  segments(0, b[2], b[1], b[2], lwd = 1, col = "dodgerblue4", lty = 2)
   text(b[1] + .1, b[2] + .1, 'b', col = "deepskyblue3")
   text(-.1, b[2]/2, expression('b'['x']), col = "darkslateblue")
   text(b[1]/2, 0.2, expression('b'['y']), col = "dodgerblue4")
   
 }
+
+vectors.plot(a, m)
