@@ -41,3 +41,4 @@ vignettes/*.pdf
 *.html
 *.twbr
 .RData
+.DS_Store
